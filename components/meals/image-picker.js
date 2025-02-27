@@ -15,6 +15,7 @@ export default function ImagePicker({ label, name }) {
   function handleImageChencge() {
     const file = imageInput.current.files[0];
     if (!file) {
+      setPickedImage(null);
       return;
     }
     const reader = new FileReader();
@@ -44,6 +45,7 @@ export default function ImagePicker({ label, name }) {
           name={name}
           accept="image/png, image/jpeg"
           onChange={handleImageChencge}
+          required
         />
         <button
           className={classes.button}
